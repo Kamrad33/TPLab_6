@@ -1,0 +1,169 @@
+﻿@model TP_Lab5.Models.Records
+
+@{
+
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Create</title>
+
+    <style>
+        #S {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 16px;
+            color: #039;
+        }
+
+        hr {
+            height: 2px;
+        }
+
+        p {
+            color: white;
+            font-size: 16px;
+            background-color: #669;
+            padding-left: 10px;
+            width: 150px;
+        }
+
+        input {
+            width: 300px;
+            font-size: 13px;
+            padding: 6px 0 4px 10px;
+            border: 1px solid #cecece;
+            background: #F6F6f6;
+            color: #669;
+        }
+
+        a {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 14px;
+            color: #669;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body id="S">
+
+    @using (Html.BeginForm())
+
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <p>Создание записи</p>
+
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.trname, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.trname, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.trname, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.model, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.model, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.model, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.cathegory, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.cathegory, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.cathegory, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.vin, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.vin, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.vin, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.recedivs, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.recedivs, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.recedivs, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <br />
+
+            <div>
+
+                <div>
+
+                    <input type="submit" value="Добавить" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+
+    <br />
+
+    <div>
+
+        @Html.ActionLink("Назад", "Index")
+
+    </div>
+
+</body>
+
+</html>

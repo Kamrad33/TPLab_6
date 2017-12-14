@@ -1,0 +1,151 @@
+﻿@model TP_Lab5.Models.Records
+
+@{
+
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Delete</title>
+
+    <style>
+        #S {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 16px;
+            color: #039;
+        }
+
+        hr {
+            height: 2px;
+            background-color: #6678b1;
+        }
+
+        p {
+            color: white;
+            font-size: 16px;
+            background-color: #669;
+            padding-left: 10px;
+            width: 360px;
+        }
+
+        input {
+            width: 80px;
+            font-size: 13px;
+            padding: 6px 0 4px 10px;
+            border: 1px solid #cecece;
+            background: #F6F6f6;
+            color: #669;
+        }
+
+        a {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 14px;
+            color: #669;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body id="S">
+
+    <div>
+
+        <p>Вы уверены, что хотите удалить эту запись?</p>
+
+        <hr />
+
+        <dl class="dl-horizontal">
+
+            <dt>
+
+                @Html.DisplayNameFor(model => model.trname)
+
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.trname)
+
+            </dd>
+
+            <dt>
+
+                @Html.DisplayNameFor(model => model.model)
+
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.model)
+
+            </dd>
+
+            <dt>
+
+                @Html.DisplayNameFor(model => model.cathegory)
+
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.cathegory)
+
+            </dd>
+
+            <dt>
+
+                @Html.DisplayNameFor(model => model.vin)
+
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.vin)
+
+            </dd>
+
+            <dt>
+
+                @Html.DisplayNameFor(model => model.recedivs)
+
+            </dt>
+
+            <dd>
+
+                @Html.DisplayFor(model => model.recedivs)
+
+            </dd>
+
+        </dl>
+
+        <br />
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+
+                <input type="submit" value="Удалить" class="btn btn-default" /> |
+
+                @Html.ActionLink("Назад", "Index")
+
+            </div>
+
+        }
+
+    </div>
+
+</body>
+
+</html>

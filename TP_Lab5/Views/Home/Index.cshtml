@@ -1,0 +1,170 @@
+﻿@model IEnumerable<TP_Lab5.Models.Records>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 14px;
+            background: white;
+            max-width: 70%;
+            width: 70%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            font-weight: normal;
+            color: #039;
+            border-bottom: 2px solid #6678b1;
+            padding: 10px 8px;
+        }
+
+        td {
+            color: #669;
+            padding: 9px 8px;
+            transition: .3s linear;
+        }
+
+        tr:hover td {
+            color: #6699ff;
+        }
+
+        td a {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 14px;
+            color: #669;
+            text-decoration: none;
+        }
+
+            td a:hover {
+                color: #6699ff;
+            }
+
+        #S a {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            background-color: #669;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+
+</head>
+
+<body>
+
+    <p id="S"> <p>
+        @if (User.IsInRole("GIBDD_User"))
+        {
+        @Html.ActionLink("Добавить Запись", "Create")
+        }
+    </p>
+        
+    <table class="table">
+
+        <tr>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.trname)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.model)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.cathegory)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.vin)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.recedivs)
+
+            </th>
+
+            <th> Action</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.trname)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.model)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.cathegory)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.vin)
+
+                </td>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.recedivs)
+
+                </th>
+
+                <td>
+
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+
+                    @Html.ActionLink("Детали", "Details", new { id = item.Id }) |
+
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>
